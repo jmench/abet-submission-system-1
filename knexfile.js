@@ -14,7 +14,7 @@ module.exports = {
     connection: {
       database: 'abet_system_dev',
       user: 'postgres',
-	    password: 'password'
+	    password: 'sports'
     },
     seeds: {
       directory: './src/dev/seeds'
@@ -25,7 +25,7 @@ module.exports = {
     connection: {
       database: 'abet_system_test',
       user: 'postgres',
-	    password: 'password'
+	    password: 'sports'
     },
     seeds: {
       directory: './src/test/seeds'
@@ -36,7 +36,7 @@ module.exports = {
     connection: {
       database: 'abet_system',
       user: 'postgres',
-	    password: 'password'
+	    password: 'sports'
     }
   }, common)
 };
