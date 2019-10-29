@@ -35,8 +35,6 @@ module.exports = {
   production: Object.assign({
     connection: {
       database: 'abet_system',
-      user: 'postgres',
-	    password: 'sports'
     }
   }, common)
 };
