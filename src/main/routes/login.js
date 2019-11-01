@@ -21,7 +21,7 @@ router.post('/', (req, res, next) => {
 	else {
 		res.redirect(302, '/login/')
 	}
-*/	if (req.body.username === 'user' && req.body.password === 'password') {
+*/	if (req.body.username === 'user' && req.body.password === 'password' && user_lib.is_whitelisted(req.body.username)) {
 		res.redirect(302, '/course/')
 	} else {
 		res.redirect(302, '/login/')
