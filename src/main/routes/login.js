@@ -2,6 +2,7 @@ var express = require('express');
 var mustache = require('../common/mustache')
 var router = express.Router();
 var user = require('../models/User')
+var user_lib = require('../lib/user')
 
 /* GET login page */
 router.get('/', function (req, res, next) {
