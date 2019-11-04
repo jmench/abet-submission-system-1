@@ -105,6 +105,7 @@ const course_new_page = async (res, department = true) => {
 	})
 }
 
+
 /* GET course home page */
 router.route('/')
 	.get(html.auth_wrapper(async (req, res, next) => {
