@@ -7,12 +7,13 @@ var router = express.Router();
 const Department = require('../models/Department')
 const TermType = require('../models/TermType')
 
+
 const course_manage_page = async (res, course_id) => {
 	let course_info = {
 		student_learning_outcomes: [
 			{
 				index: 1,
-				description: 'n/a',
+				description: course_id,
 				metrics: [
 					{
 						name: 'n/a',
@@ -81,12 +82,12 @@ const course_manage_page = async (res, course_id) => {
 	})
 }
 
-const course_new_page = async (res, department = false) => {
+const course_new_page = async (res, department = true) => {
 	const departments = await Department.query().select()
 	const semesters = await (await TermType.query()
 		.findById('semester'))
 		.$relatedQuery('terms')
-	let student_learning_outcomes = false
+	let student_learning_outcomes = true
 
 	if (department) {
 		student_learning_outcomes = await (await Department.query().findById(department))

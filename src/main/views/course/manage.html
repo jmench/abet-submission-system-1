@@ -1,10 +1,10 @@
 <section id="course_manage_page" class="container">
-	<h2>CS498 Course Portfolio</h2>
+	{{#student_learning_outcomes}}
+	<h2>{{description}} Course Portfolio</h2>
 	<div class="container row">
 		Course Summary
 	</div>
 	<div class="container row">
-		{{#student_learning_outcomes}}
 		<h3>Student Learning Outcome {{index}}</h3>
 		<p>{{description}}</p>
 		<table id="student_learning_outcome_rubric">
