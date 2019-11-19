@@ -115,6 +115,15 @@ router.route('/')
 		})
 	}))
 
+/* GET course home page */
+router.route('/help')
+	.get(html.auth_wrapper(async (req, res, next) => {
+		res.render('base_template', {
+			title: 'Course Portfolios',
+			body: mustache.render('course/help')
+		})
+	}))
+
 /* GET course page */
 router.route('/:id')
 	.get(html.auth_wrapper(async (req, res, next) => {
