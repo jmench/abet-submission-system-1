@@ -10,9 +10,16 @@ module.exports.new = async ({
 	student_learning_outcomes,
 	section
 }) => {
-	// TODO
+	// May need to check this info, just trying to finish what was marked TODO
 	return {
-		id: 'todo'
+		department: department_id,
+		id: course_number,
+		instructor: instructor,
+		semester: semester,
+		year: year,
+		num_students: num_students,
+		student_learning_outcomes: student_learning_outcomes,
+		section: section
 	};
 }
 
