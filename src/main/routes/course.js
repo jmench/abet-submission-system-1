@@ -7,6 +7,24 @@ var router = express.Router();
 const Department = require('../models/Department')
 const TermType = require('../models/TermType')
 const StudentLearningOutcomeMetric = require('../models/StudentLearningOutcome/Metric')
+const Artifact = require('../models/CoursePortfolio/Artifact/index')
+
+// loads the proper number of artifacts to the home page
+const course_artifact_info = async (res, req) => {
+	const artifact_num = await Artifact.query()
+
+	// Counts the number of artifacts
+	num_artifacts = artifact_num.length
+
+	let course_artifact = {
+		num: num_artifacts
+	};
+
+	res.render('base_template', {
+		title: 'CS498 Course Portfolio',
+		body: mustache.render('course/index', course_artifact)
+	})
+}
 
 
 const course_manage_page = async (res, course_id) => {
@@ -128,10 +146,7 @@ const course_new_page = async (res, department = false) => {
 /* GET course home page */
 router.route('/')
 	.get(html.auth_wrapper(async (req, res, next) => {
-		res.render('base_template', {
-			title: 'Course Portfolios',
-			body: mustache.render('course/index')
-		})
+		await course_artifact_info(res, req)
 	}))
 
 /* GET course home page */
