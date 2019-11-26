@@ -6,9 +6,16 @@ var router = express.Router();
 
 const Department = require('../models/Department')
 const TermType = require('../models/TermType')
+const StudentLearningOutcomeMetric = require('../models/StudentLearningOutcome/Metric')
 
 
 const course_manage_page = async (res, course_id) => {
+	const slo1 = await StudentLearningOutcomeMetric.query().findById(1)
+	const slo2 = await StudentLearningOutcomeMetric.query().findById(2)
+	const slo3 = await StudentLearningOutcomeMetric.query().findById(3)
+	const slo4 = await StudentLearningOutcomeMetric.query().findById(4)
+	const slo5 = await StudentLearningOutcomeMetric.query().findById(5)
+
 	let course_info = {
 		student_learning_outcomes: [
 			{
@@ -16,33 +23,40 @@ const course_manage_page = async (res, course_id) => {
 				description: course_id,
 				metrics: [
 					{
-						name: 'n/a',
-						exceeds: 'n/a',
-						meets: 'n/a',
-						partially: 'n/a',
-						not: 'n/a'
+						name: slo1.name,
+						exceeds: slo1.exceeds,
+						meets: slo1.meets,
+						partially: slo1.partially,
+						not: slo1.not
 					},
 					{
-						name: 'n/a',
-						exceeds: 'n/a',
-						meets: 'n/a',
-						partially: 'n/a',
-						not: 'n/a'
+						name: slo2.name,
+						exceeds: slo2.exceeds,
+						meets: slo2.meets,
+						partially: slo2.partially,
+						not: slo2.not
 					},
 					{
-						name: 'n/a',
-						exceeds: 'n/a',
-						meets: 'n/a',
-						partially: 'n/a',
-						not: 'n/a'
+						name: slo3.name,
+						exceeds: slo3.exceeds,
+						meets: slo3.meets,
+						partially: slo3.partially,
+						not: slo3.not
 					},
 					{
-						name: 'n/a',
-						exceeds: 'n/a',
-						meets: 'n/a',
-						partially: 'n/a',
-						not: 'n/a'
+						name: slo4.name,
+						exceeds: slo4.exceeds,
+						meets: slo4.meets,
+						partially: slo4.partially,
+						not: slo4.not
 					},
+					{
+						name: slo5.name,
+						exceeds: slo5.exceeds,
+						meets: slo5.meets,
+						partially: slo5.partially,
+						not: slo5.not
+					}
 				],
 				artifacts: [
 					{
@@ -66,6 +80,10 @@ const course_manage_page = async (res, course_id) => {
 									{
 										metric: 4,
 										value: 6
+									},
+									{
+										metric: 5,
+										value: 6
 									}
 								]
 							}
@@ -75,6 +93,7 @@ const course_manage_page = async (res, course_id) => {
 			}
 		]
 	};
+
 
 	res.render('base_template', {
 		title: 'CS498 Course Portfolio',
